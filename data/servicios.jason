@@ -1,0 +1,18 @@
+{
+  "ucia": {
+    "nombre": "UCIA",
+    "vademecum": [815]
+  },
+  "clinica": {
+    "nombre": "Clínica Médica",
+    "vademecum": []
+  },
+  "cirugia": {
+    "nombre": "Cirugía",
+    "vademecum": []
+  },
+  "guardia": {
+    "nombre": "Guardia",
+    "vademecum": []
+  }
+}
