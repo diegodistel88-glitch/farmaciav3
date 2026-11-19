@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏥 Farmacia 2.0 Pro - Inicio</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- HEADER -->
+        <header class="app-header">
+            <div class="header-left">
+                <h1>🏥 Farmacia 2.0 Pro</h1>
+                <span class="version-badge">Pro</span>
+            </div>
+            <div class="header-right">
+                <p class="subtitle">Sistema de Kits + Pedidos por Servicio</p>
+                <p class="db-status">Base de datos: <span id="dbStatus">Cargando...</span></p>
+            </div>
+        </header>
+
+        <!-- NAVEGACIÓN PRINCIPAL -->
+        <nav class="tabs-main">
+            <a href="index.html" class="tab active">🏠 Inicio / Buscador</a>
+            <a href="pedidos.html" class="tab">📋 Pedidos (Médico/Enfermería/Farmacia)</a>
+            <a href="config.html" class="tab">⚙️ Configuración</a>
+        </nav>
+
+        <main class="app-main">
+            <!-- PANEL DE BÚSQUEDA (tu buscador actual) -->
+            <section class="panel search-panel">
+                <h2>🔍 Buscar Insumo o Medicamento</h2>
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Ej: jeringa, amikacina, sonda..." oninput="buscarInsumos()">
+                    <button onclick="limpiarBusqueda()" class="btn-clear" title="Limpiar búsqueda">✕</button>
+                </div>
+                <div id="resultados" class="resultados-list">
+                    <p class="hint">🔎 Escribe para buscar en el vademécum...</p>
+                </div>
+                <div class="search-info">
+                    <span id="resultCount"></span>
+                </div>
+            </section>
+
+            <!-- PANEL DE DETALLE DEL INSUMO -->
+            <section class="panel detail-panel" id="detailPanel" style="display:none;">
+                <div class="detail-header">
+                    <div>
+                        <h2 id="detailNombre">-</h2>
+                        <span class="codigo-badge" id="detailCodigo">Código: -</span>
+                    </div>
+                    <span class="formato-badge" id="detailFormatoBadge">-</span>
+                </div>
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <label>📦 Formato</label>
+                        <span id="detailFormato">-</span>
+                    </div>
+                    <div class="detail-item">
+                        <label>📂 Categoría</label>
+                        <span id="detailCategoria">-</span>
+                    </div>
+                    <div class="detail-item">
+                        <label>⚗️ Concentración</label>
+                        <span id="detailConcentracion">-</span>
+                    </div>
+                    <div class="detail-item">
+                        <label>🚀 Vía</label>
+                        <span id="detailVia">-</span>
+                    </div>
+                </div>
+
+                <!-- KIT DE DESCARTABLES ASOCIADOS -->
+                <div class="kit-section">
+                    <h3>🧩 Kit de Descartables Asociados</h3>
+                    <div id="kitContainer">
+                        <p class="hint">Selecciona un insumo para ver su kit asociado</p>
+                    </div>
+                    <div class="kit-actions">
+                        <button onclick="descargarKit()" class="btn-primary">📦 Descargar Kit</button>
+                        <button onclick="imprimirKit()" class="btn-secondary">🖨️ Imprimir</button>
+                        <button onclick="enviarAFarmacia()" class="btn-success">📤 Enviar a Farmacia</button>
+                    </div>
+                </div>
+
+                <!-- HISTORIAL DE DESCARGOS -->
+                <div class="historial-section">
+                    <h3>📋 Historial de Descargos</h3>
+                    <div id="historialContainer">
+                        <p class="hint">No hay descargos registrados</p>
+                    </div>
+                    <button onclick="exportarHistorial()" class="btn-secondary btn-sm" style="margin-top:10px;">
+                        📤 Exportar Historial
+                    </button>
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="app-footer">
+            <div class="footer-left">
+                <p>🏥 Farmacia 2.0 Pro - Sistema de Kits Médicos</p>
+            </div>
+            <div class="footer-right">
+                <p>Datos actualizados desde el vademécum | <span id="fechaActual"></span></p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('fechaActual').textContent = new Date().toLocaleDateString('es-AR');
+    </script>
+</body>
+</html>
