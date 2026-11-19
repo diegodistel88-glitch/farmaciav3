@@ -1,0 +1,117 @@
+/* ============================================
+   AGREGADOS FARMACIA 2.0 PRO
+   ============================================ */
+.tabs-main {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.tabs-main .tab {
+  padding: 12px 24px;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  background: #fff;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95em;
+  transition: all 0.2s;
+}
+.tabs-main .tab.active {
+  background: #4299e1;
+  color: #fff;
+  border-color: #4299e1;
+}
+.tabs-inner {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.tabs-inner button {
+  padding: 8px 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+  font-weight: 600;
+}
+.tabs-inner button.active {
+  background: #4299e1;
+  color: #fff;
+  border-color: #4299e1;
+}
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+}
+.card h2, .card h3, .card h4 {
+  color: #4a5568;
+  margin-bottom: 12px;
+}
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+@media (max-width: 768px) {
+  .grid2 { grid-template-columns: 1fr; }
+}
+.card table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9em;
+}
+.card th, .card td {
+  padding: 8px 10px;
+  border-bottom: 1px solid #edf2f7;
+  text-align: left;
+}
+.card th {
+  background: #f7fafc;
+  color: #4a5568;
+  font-size: 0.75em;
+  text-transform: uppercase;
+}
+.card label {
+  display: block;
+  margin-top: 8px;
+  margin-bottom: 4px;
+  font-size: 0.85em;
+  color: #4a5568;
+  font-weight: 600;
+}
+.card select, .card input, .card textarea {
+  padding: 8px 10px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  width: 100%;
+  margin-bottom: 8px;
+  font-size: 0.95em;
+}
+.badge {
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 0.75em;
+  font-weight: 600;
+}
+.badge-rojo     { background: #fc8181; color: #fff; }
+.badge-amarillo { background: #ecc94b; color: #744210; }
+.badge-verde    { background: #48bb78; color: #fff; }
+.fila-rojo      { background: #fed7d7; }
+.fila-amarillo  { background: #fefcbf; }
+.fila-verde     { background: #c6f6d5; }
+.btn-sm { padding: 6px 12px !important; font-size: 0.8em !important; }
+.btn-success {
+  background: #48bb78;
+  color: #fff;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.95em;
+}
+.btn-success:hover { background: #38a169; }

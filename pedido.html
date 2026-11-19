@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🏥 Pedidos por Servicio - Farmacia 2.0 Pro</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <div class="header-left">
+        <h1>🏥 Farmacia 2.0 Pro</h1>
+        <span class="version-badge">Pro</span>
+      </div>
+      <div class="header-right">
+        <p class="subtitle">Médico · Enfermería · Farmacia</p>
+        <p class="db-status">Base: <span id="dbStatus">Cargando...</span></p>
+      </div>
+    </header>
+
+    <div class="tabs-main">
+      <button class="tab active" data-tab="medico">👨‍⚕️ Médico</button>
+      <button class="tab" data-tab="enfermeria">🩺 Enfermería</button>
+      <button class="tab" data-tab="farmacia">💊 Farmacia</button>
+      <button class="tab" data-tab="config">⚙️ Configuración</button>
+    </div>
+
+    <div id="tab-medico" class="tab-content"></div>
+    <div id="tab-enfermeria" class="tab-content" style="display:none;"></div>
+    <div id="tab-farmacia" class="tab-content" style="display:none;"></div>
+    <div id="tab-config" class="tab-content" style="display:none;"></div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/vademecum.js"></script>
+  <script src="js/stock.js"></script>
+  <script src="js/medico.js"></script>
+  <script src="js/enfermeria.js"></script>
+  <script src="js/farmacia.js"></script>
+  <script src="js/config.js"></script>
+  <script>
+    async function init() {
+      cargar();
+      await cargarVademecum();
+      document.getElementById('dbStatus').textContent = `✅ ${VADEMECUM.length} insumos`;
+      document.querySelectorAll('.tab').forEach(t => {
+        t.onclick = () => {
+          document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
+          t.classList.add('active');
+          document.querySelectorAll('.tab-content').forEach(c => c.style.display = 'none');
+          const

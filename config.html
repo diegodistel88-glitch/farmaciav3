@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>⚙️ Configuración - Farmacia 2.0 Pro</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <div class="header-left"><h1>⚙️ Configuración</h1></div>
+      <div class="header-right"><p class="subtitle">Vademécum por servicio + Stock</p></div>
+    </header>
+    <div id="tab-config" class="tab-content"></div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/vademecum.js"></script>
+  <script src="js/stock.js"></script>
+  <script src="js/config.js"></script>
+  <script>
+    async function init() {
+      cargar();
+      await cargarVademecum();
+      renderConfig();
+    }
+    window.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>
